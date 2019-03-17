@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4" *ngFor="let task of todos">
+            <div class="card mt-5" [ngClass]="{'text-white bg-success': task.complete}">
+                <div class="card-body">
+                    <h5 class="card-title">{{task.title}}</h5>
+                    <p class="card-text">{{task.text}}</p>
+                    <button class="btn"
+                            [ngClass]="{'btn-success': !task.complete, 'btn-primary': task.complete}">
+                        {{task.complete ? 'Uncomplete': 'Complete'}} task
+                    </button>
+                    <button class="btn btn-danger" (click)="deleteTask(task.id)">Delete task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
